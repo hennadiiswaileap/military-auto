@@ -187,7 +187,7 @@ export default function ContactSection() {
                 disabled={status === "loading" || status === "success"}
                 whileHover={{ scale: status === "idle" ? 1.02 : 1 }}
                 whileTap={{ scale: 0.98 }}
-                className="btn-shimmer w-full py-4 rounded-xl font-bold text-white border-none cursor-pointer text-base font-[family-name:var(--font-body)]"
+                className="btn-shimmer w-full py-4 rounded-full font-bold text-white border-none cursor-pointer text-base font-[family-name:var(--font-body)]"
                 style={{
                   background: status === "success"
                     ? "linear-gradient(135deg, #2A6A00, #4A9A00)"

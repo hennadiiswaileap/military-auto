@@ -16,6 +16,11 @@
 
 html {
   scroll-behavior: smooth;
+  cursor: none;
+}
+
+html * {
+  cursor: none !important;
 }
 
 body {
