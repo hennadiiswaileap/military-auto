@@ -42,7 +42,7 @@ export default function HowItWorks() {
           <span className="text-xs font-semibold tracking-widest text-[#7CB518] uppercase mb-3 block">
             Процес
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-[family-name:var(--font-heading)]">
             Як ми працюємо
           </h2>
         </motion.div>

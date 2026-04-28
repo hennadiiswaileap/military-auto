@@ -34,7 +34,12 @@ const faqs = [
   },
 ];
 
-function FAQItem({ item, index, isOpen, onToggle }: {
+function FAQItem({
+  item,
+  index,
+  isOpen,
+  onToggle,
+}: {
   item: (typeof faqs)[0];
   index: number;
   isOpen: boolean;
@@ -42,47 +47,76 @@ function FAQItem({ item, index, isOpen, onToggle }: {
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.07, duration: 0.4 }}
-      className="border-b border-[#2A2A2A] last:border-none"
+      transition={{ delay: index * 0.06, duration: 0.4 }}
+      className="rounded-2xl overflow-hidden mb-3 last:mb-0"
+      style={{
+        background: isOpen
+          ? "rgba(255,255,255,0.05)"
+          : "rgba(255,255,255,0.025)",
+        backdropFilter: "blur(24px)",
+        WebkitBackdropFilter: "blur(24px)",
+        border: isOpen
+          ? "1px solid rgba(124,181,24,0.2)"
+          : "1px solid rgba(255,255,255,0.07)",
+        boxShadow: isOpen
+          ? "0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.07)"
+          : "0 2px 12px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.04)",
+        transition: "all 0.3s ease",
+      }}
     >
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between py-5 text-left bg-transparent border-none cursor-pointer gap-4"
+        className="w-full flex items-center justify-between px-6 py-5 text-left bg-transparent border-none cursor-pointer gap-4"
       >
-        <span className="text-sm md:text-base font-medium text-white leading-snug pr-2">
+        <span
+          className="text-sm md:text-base font-medium text-white leading-snug pr-4"
+          style={{ fontFamily: "var(--font-body)" }}
+        >
           {item.q}
         </span>
-        <motion.div
-          animate={{ rotate: isOpen ? 45 : 0 }}
-          transition={{ duration: 0.25 }}
-          className="flex-shrink-0 w-7 h-7 rounded-full border border-[#2A2A2A] flex items-center justify-center"
+
+        {/* Perfectly centered icon */}
+        <div
+          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300"
           style={{
-            background: isOpen ? "rgba(124,181,24,0.1)" : "transparent",
-            borderColor: isOpen ? "rgba(124,181,24,0.3)" : "#2A2A2A",
+            background: isOpen
+              ? "rgba(124,181,24,0.15)"
+              : "rgba(255,255,255,0.06)",
+            border: isOpen
+              ? "1px solid rgba(124,181,24,0.3)"
+              : "1px solid rgba(255,255,255,0.1)",
           }}
         >
-          <span
-            className="text-base font-bold leading-none"
-            style={{ color: isOpen ? "#A4D620" : "#A0A0A0" }}
+          <motion.svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            animate={{ rotate: isOpen ? 45 : 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
           >
-            +
-          </span>
-        </motion.div>
+            <line x1="6" y1="0" x2="6" y2="12" stroke={isOpen ? "#A4D620" : "#A0A0A0"} strokeWidth="1.5" strokeLinecap="round"/>
+            <line x1="0" y1="6" x2="12" y2="6" stroke={isOpen ? "#A4D620" : "#A0A0A0"} strokeWidth="1.5" strokeLinecap="round"/>
+          </motion.svg>
+        </div>
       </button>
 
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
-            key="content"
+            key="body"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             style={{ overflow: "hidden" }}
           >
-            <p className="text-[#A0A0A0] text-sm md:text-base leading-relaxed pb-5 pr-10">
+            <p
+              className="text-[#A0A0A0] text-sm md:text-base leading-relaxed px-6 pb-5 pr-16"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
               {item.a}
             </p>
           </motion.div>
@@ -95,7 +129,7 @@ function FAQItem({ item, index, isOpen, onToggle }: {
 export default function FAQ() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <section id="faq" className="py-20 md:py-28 bg-[#0A0A0A]" ref={ref}>
@@ -109,26 +143,21 @@ export default function FAQ() {
           <span className="text-xs font-semibold tracking-widest text-[#7CB518] uppercase mb-3 block">
             Питання
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-[family-name:var(--font-heading)]">
             Часті запитання
           </h2>
         </motion.div>
 
-        <div
-          className="rounded-2xl overflow-hidden"
-          style={{ background: "#111111", border: "1px solid #2A2A2A" }}
-        >
-          <div className="px-6 md:px-8">
-            {faqs.map((item, i) => (
-              <FAQItem
-                key={i}
-                item={item}
-                index={i}
-                isOpen={openIndex === i}
-                onToggle={() => setOpenIndex(openIndex === i ? null : i)}
-              />
-            ))}
-          </div>
+        <div>
+          {faqs.map((item, i) => (
+            <FAQItem
+              key={i}
+              item={item}
+              index={i}
+              isOpen={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+            />
+          ))}
         </div>
       </div>
     </section>

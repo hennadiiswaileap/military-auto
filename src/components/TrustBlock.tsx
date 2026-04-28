@@ -72,7 +72,7 @@ export default function TrustBlock() {
           <span className="text-xs font-semibold tracking-widest text-[#7CB518] uppercase mb-3 block">
             Цифри
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-[family-name:var(--font-heading)]">
             Нам довіряють
           </h2>
         </motion.div>

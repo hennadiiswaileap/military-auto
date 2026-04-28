@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
+import { Unbounded, Inter } from "next/font/google";
 import "./globals.css";
 import CursorGlow from "@/components/CursorGlow";
+
+const unbounded = Unbounded({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-body",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Military Auto — Підбір та доставка авто зі США під ключ | Пригон авто",
@@ -25,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="uk">
+    <html lang="uk" className={`${unbounded.variable} ${inter.variable}`}>
       <body>
         <CursorGlow />
         {children}
