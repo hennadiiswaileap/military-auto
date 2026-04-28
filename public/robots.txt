@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://militaryauto.ua/sitemap.xml
+Sitemap: https://militaryauto.net/sitemap.xml

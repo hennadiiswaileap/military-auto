@@ -25,7 +25,7 @@ export const metadata: Metadata = {
       "Підбираємо, викуповуємо та доставляємо авто зі США в Україну. Економія до 20%.",
     type: "website",
     locale: "uk_UA",
-    url: "https://militaryauto.ua",
+    url: "https://militaryauto.net",
     siteName: "Military Auto",
   },
   robots: { index: true, follow: true },

@@ -5,12 +5,12 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 
 const cars = [
-  { make: "Toyota",     model: "Camry",  year: 2021, priceUS: 15200, priceUA: 19000, saving: 3800 },
-  { make: "BMW",        model: "X3",     year: 2022, priceUS: 26500, priceUA: 33000, saving: 6500 },
-  { make: "Hyundai",    model: "Tucson", year: 2023, priceUS: 19800, priceUA: 24500, saving: 4700 },
-  { make: "Ford",       model: "Mustang",year: 2021, priceUS: 22000, priceUA: 27500, saving: 5500 },
-  { make: "Mercedes",   model: "GLC",    year: 2022, priceUS: 28900, priceUA: 36000, saving: 7100 },
-  { make: "Volkswagen", model: "ID.4",   year: 2023, priceUS: 18500, priceUA: 23000, saving: 4500 },
+  { make: "Toyota",     model: "Camry",  year: 2021, priceUS: 15200, priceUA: 19000, saving: 3800, photo: "/cars/camry.jpg"          },
+  { make: "BMW",        model: "X3",     year: 2022, priceUS: 26500, priceUA: 33000, saving: 6500, photo: "/cars/bmw-x3.jpg"         },
+  { make: "Hyundai",    model: "Tucson", year: 2023, priceUS: 19800, priceUA: 24500, saving: 4700, photo: "/cars/hyundai-tucson.avif" },
+  { make: "Ford",       model: "Mustang",year: 2021, priceUS: 22000, priceUA: 27500, saving: 5500, photo: "/cars/ford-mustang.webp"  },
+  { make: "Mercedes",   model: "GLC",    year: 2022, priceUS: 28900, priceUA: 36000, saving: 7100, photo: "/cars/mercedes-glc.avif"  },
+  { make: "Volkswagen", model: "ID.4",   year: 2023, priceUS: 18500, priceUA: 23000, saving: 4500, photo: "/cars/vw-id4.avif"        },
 ];
 
 function fmt(n: number) {
@@ -81,7 +81,7 @@ function CarCard({ car, index }: { car: (typeof cars)[0]; index: number }) {
           }}
         />
         <Image
-          src="/cars/camry.jpg"
+          src={car.photo}
           alt={`${car.make} ${car.model} ${car.year}`}
           fill
           className="object-cover transition-transform duration-500"
