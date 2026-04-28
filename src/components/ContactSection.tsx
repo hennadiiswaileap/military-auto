@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Phone, Mail, MapPin, Check } from "lucide-react";
+import confetti from "canvas-confetti";
 
 const IgIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -95,10 +96,31 @@ function GlassTextarea({
 
 export default function ContactSection() {
   const ref = useRef(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
   const [status, setStatus] = useState<"idle"|"loading"|"success"|"error">("idle");
   const [error, setError] = useState("");
+
+  const fireConfetti = () => {
+    const btn = btnRef.current;
+    if (!btn) return;
+    const rect = btn.getBoundingClientRect();
+    const x = (rect.left + rect.width / 2) / window.innerWidth;
+    const y = (rect.top + rect.height / 2) / window.innerHeight;
+
+    const opts = {
+      origin: { x, y },
+      colors: ["#7CB518", "#A4D620", "#ffffff", "#E8B921", "#1B5BA3"],
+      startVelocity: 28,
+      gravity: 0.9,
+      ticks: 220,
+      disableForReducedMotion: true,
+    };
+
+    confetti({ ...opts, particleCount: 60, spread: 70, angle: 80 });
+    confetti({ ...opts, particleCount: 60, spread: 70, angle: 100 });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -113,6 +135,7 @@ export default function ContactSection() {
       if (!res.ok) throw new Error();
       setStatus("success");
       setForm({ name: "", phone: "", message: "" });
+      fireConfetti();
     } catch {
       setStatus("error");
     }
@@ -159,6 +182,7 @@ export default function ContactSection() {
               {error && <p className="text-red-400 text-sm">{error}</p>}
 
               <motion.button
+                ref={btnRef}
                 type="submit"
                 disabled={status === "loading" || status === "success"}
                 whileHover={{ scale: status === "idle" ? 1.02 : 1 }}
