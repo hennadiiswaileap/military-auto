@@ -26,11 +26,11 @@ const TkIcon = () => (
 );
 
 const navLinks = [
-  { label: "Як ми працюємо", href: "#how-it-works" },
-  { label: "Приклади",        href: "#examples"    },
-  { label: "Про нас",         href: "#trust"       },
-  { label: "FAQ",             href: "#faq"         },
-  { label: "Контакти",        href: "#contact"     },
+  { label: "Як ми працюємо", href: "#як-ми-працюємо" },
+  { label: "Приклади",        href: "#приклади"        },
+  { label: "Про нас",         href: "#про-нас"         },
+  { label: "FAQ",             href: "#питання"         },
+  { label: "Контакти",        href: "#контакти"        },
 ];
 
 const socials = [
@@ -53,7 +53,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
             <a href="#" className="flex items-center select-none mb-3">
-              <Image src="/logo.svg" alt="Military Auto" width={240} height={82} className="w-[240px] md:w-[190px] h-auto" />
+              <Image src="/logo.svg" alt="Логотип Military Auto — пригін авто зі США" width={240} height={82} className="w-[240px] md:w-[190px] h-auto" />
             </a>
             <p className="text-[#555] text-xs max-w-xs leading-relaxed">
               Підбір та доставка автомобілів зі США в Україну. 6 років досвіду, 1000+ авто.

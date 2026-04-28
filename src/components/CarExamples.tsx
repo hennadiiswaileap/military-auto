@@ -82,7 +82,7 @@ function CarCard({ car, index }: { car: (typeof cars)[0]; index: number }) {
         />
         <Image
           src={car.photo}
-          alt={`${car.make} ${car.model} ${car.year}`}
+          alt={`${car.make} ${car.model} ${car.year} — пригін зі США в Україну`}
           fill
           className="object-cover transition-transform duration-500"
           style={{ transform: hovered ? "scale(1.04)" : "scale(1)" }}
@@ -132,11 +132,11 @@ export default function CarExamples() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   const scrollToContact = () => {
-    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+    document.querySelector("#контакти")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="examples" className="py-20 md:py-28 bg-[#0A0A0A]" ref={ref}>
+    <section id="приклади" className="py-20 md:py-28 bg-[#0A0A0A]" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

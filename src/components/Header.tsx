@@ -6,10 +6,10 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const navLinks = [
-  { label: "Як ми працюємо", href: "#how-it-works" },
-  { label: "Приклади", href: "#examples" },
-  { label: "Про нас", href: "#trust" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Як ми працюємо", href: "#як-ми-працюємо" },
+  { label: "Приклади", href: "#приклади" },
+  { label: "Про нас", href: "#про-нас" },
+  { label: "FAQ", href: "#питання" },
 ];
 
 function scrollTo(href: string, onDone?: () => void) {
@@ -25,7 +25,7 @@ function Logo({ size = "md" }: { size?: "sm" | "md" }) {
   const w = size === "sm" ? 165 : 210;
   return (
     <a href="#" className="flex items-center select-none">
-      <Image src="/logo.svg" alt="Military Auto" width={w} height={h} priority />
+      <Image src="/logo.svg" alt="Логотип Military Auto — пригін авто зі США" width={w} height={h} priority />
     </a>
   );
 }
@@ -80,7 +80,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <div className="hidden md:block">
               <button
-                onClick={() => scrollTo("#contact")}
+                onClick={() => scrollTo("#контакти")}
                 className="btn-shimmer px-5 py-2.5 rounded-full text-sm font-semibold text-white cursor-pointer border-none font-[family-name:var(--font-body)]"
                 style={{ background: "linear-gradient(135deg, #7CB518, #A4D620)" }}
               >
@@ -183,7 +183,7 @@ export default function Header() {
                     className="mt-8"
                   >
                     <button
-                      onClick={() => scrollTo("#contact", close)}
+                      onClick={() => scrollTo("#контакти", close)}
                       className="btn-shimmer w-full py-4 rounded-full text-base font-bold text-white border-none cursor-pointer font-[family-name:var(--font-body)]"
                       style={{ background: "linear-gradient(135deg, #7CB518, #A4D620)" }}
                     >

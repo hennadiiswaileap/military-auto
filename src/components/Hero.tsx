@@ -103,7 +103,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <motion.button
-            onClick={() => scrollTo("#contact")}
+            onClick={() => scrollTo("#контакти")}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="btn-shimmer px-8 py-4 rounded-full text-base font-bold text-white border-none cursor-pointer font-[family-name:var(--font-body)]"
@@ -112,7 +112,7 @@ export default function Hero() {
             Розрахувати вартість
           </motion.button>
           <motion.button
-            onClick={() => scrollTo("#how-it-works")}
+            onClick={() => scrollTo("#як-ми-працюємо")}
             whileHover={{ scale: 1.04, borderColor: "#7CB518" }}
             whileTap={{ scale: 0.97 }}
             className="px-8 py-4 rounded-full text-base font-semibold text-white border border-[#2A2A2A] bg-transparent cursor-pointer transition-colors duration-200 font-[family-name:var(--font-body)]"

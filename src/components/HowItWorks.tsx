@@ -31,7 +31,7 @@ export default function HowItWorks() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section id="how-it-works" className="py-20 md:py-28 bg-[#111111]" ref={ref}>
+    <section id="як-ми-працюємо" className="py-20 md:py-28 bg-[#111111]" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

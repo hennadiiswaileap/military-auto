@@ -142,7 +142,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-[#111111] steel-texture" ref={ref}>
+    <section id="контакти" className="py-20 md:py-28 bg-[#111111] steel-texture" ref={ref}>
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
