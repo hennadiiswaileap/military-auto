@@ -3,58 +3,77 @@
 import { useEffect, useRef } from "react";
 
 export default function CursorGlow() {
-  const glowRef = useRef<HTMLDivElement>(null);
+  const starRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.matchMedia("(hover: none)").matches) return;
 
-    const el = glowRef.current;
+    const el = starRef.current;
     if (!el) return;
     el.style.display = "block";
+    document.documentElement.style.cursor = "none";
 
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+    let currentX = targetX;
+    let currentY = targetY;
     let rafId: number;
-    let targetX = 0;
-    let targetY = 0;
-    let currentX = 0;
-    let currentY = 0;
 
-    const handleMouseMove = (e: MouseEvent) => {
+    const onMouseMove = (e: MouseEvent) => {
       targetX = e.clientX;
       targetY = e.clientY;
     };
 
     const animate = () => {
-      currentX += (targetX - currentX) * 0.08;
-      currentY += (targetY - currentY) * 0.08;
+      currentX += (targetX - currentX) * 0.1;
+      currentY += (targetY - currentY) * 0.1;
       if (el) {
         el.style.left = currentX + "px";
-        el.style.top = currentY + "px";
+        el.style.top  = currentY + "px";
       }
       rafId = requestAnimationFrame(animate);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
     rafId = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousemove", onMouseMove);
       cancelAnimationFrame(rafId);
+      document.documentElement.style.cursor = "";
     };
   }, []);
 
   return (
     <div
-      ref={glowRef}
+      ref={starRef}
       className="pointer-events-none fixed z-[9999] hidden"
       style={{
-        width: "700px",
-        height: "700px",
+        width: "28px",
+        height: "28px",
         transform: "translate(-50%, -50%)",
-        background:
-          "radial-gradient(circle, rgba(124,181,24,0.13) 0%, rgba(124,181,24,0.04) 40%, transparent 70%)",
-        borderRadius: "50%",
       }}
-    />
+    >
+      <svg
+        viewBox="0 0 24 24"
+        width="28"
+        height="28"
+        style={{ filter: "drop-shadow(0 0 5px rgba(124,181,24,0.7))" }}
+      >
+        <defs>
+          <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stopColor="#7CB518" />
+            <stop offset="100%" stopColor="#A4D620" />
+          </linearGradient>
+        </defs>
+        <polygon
+          points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"
+          fill="url(#starGrad)"
+          stroke="rgba(255,255,255,0.25)"
+          strokeWidth="0.5"
+        />
+      </svg>
+    </div>
   );
 }

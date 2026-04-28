@@ -106,7 +106,7 @@ export default function Hero() {
             onClick={() => scrollTo("#contact")}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            className="btn-shimmer px-8 py-4 rounded-xl text-base font-bold text-white border-none cursor-pointer font-[family-name:var(--font-body)]"
+            className="btn-shimmer px-8 py-4 rounded-full text-base font-bold text-white border-none cursor-pointer font-[family-name:var(--font-body)]"
             style={{ background: "linear-gradient(135deg, #7CB518, #A4D620)" }}
           >
             Розрахувати вартість
@@ -115,7 +115,7 @@ export default function Hero() {
             onClick={() => scrollTo("#how-it-works")}
             whileHover={{ scale: 1.04, borderColor: "#7CB518" }}
             whileTap={{ scale: 0.97 }}
-            className="px-8 py-4 rounded-xl text-base font-semibold text-white border border-[#2A2A2A] bg-transparent cursor-pointer transition-colors duration-200 font-[family-name:var(--font-body)]"
+            className="px-8 py-4 rounded-full text-base font-semibold text-white border border-[#2A2A2A] bg-transparent cursor-pointer transition-colors duration-200 font-[family-name:var(--font-body)]"
           >
             Як це працює
           </motion.button>

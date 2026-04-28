@@ -81,7 +81,7 @@ export default function Header() {
             <div className="hidden md:block">
               <button
                 onClick={() => scrollTo("#contact")}
-                className="btn-shimmer px-5 py-2.5 rounded-lg text-sm font-semibold text-white cursor-pointer border-none font-[family-name:var(--font-body)]"
+                className="btn-shimmer px-5 py-2.5 rounded-full text-sm font-semibold text-white cursor-pointer border-none font-[family-name:var(--font-body)]"
                 style={{ background: "linear-gradient(135deg, #7CB518, #A4D620)" }}
               >
                 Розрахувати вартість
@@ -184,7 +184,7 @@ export default function Header() {
                   >
                     <button
                       onClick={() => scrollTo("#contact", close)}
-                      className="btn-shimmer w-full py-4 rounded-xl text-base font-bold text-white border-none cursor-pointer font-[family-name:var(--font-body)]"
+                      className="btn-shimmer w-full py-4 rounded-full text-base font-bold text-white border-none cursor-pointer font-[family-name:var(--font-body)]"
                       style={{ background: "linear-gradient(135deg, #7CB518, #A4D620)" }}
                     >
                       Розрахувати вартість
