@@ -21,8 +21,8 @@ function scrollTo(href: string, onDone?: () => void) {
 }
 
 function Logo({ size = "md" }: { size?: "sm" | "md" }) {
-  const h = size === "sm" ? 32 : 40;
-  const w = size === "sm" ? 120 : 150;
+  const h = size === "sm" ? 44 : 56;
+  const w = size === "sm" ? 165 : 210;
   return (
     <a href="#" className="flex items-center select-none">
       <Image src="/logo.svg" alt="Military Auto" width={w} height={h} priority />

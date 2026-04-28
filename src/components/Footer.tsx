@@ -53,7 +53,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div>
             <a href="#" className="flex items-center select-none mb-3">
-              <Image src="/logo.svg" alt="Military Auto" width={140} height={48} />
+              <Image src="/logo.svg" alt="Military Auto" width={190} height={65} />
             </a>
             <p className="text-[#555] text-xs max-w-xs leading-relaxed">
               Підбір та доставка автомобілів зі США в Україну. 6 років досвіду, 1000+ авто.
