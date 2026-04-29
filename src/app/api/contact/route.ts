@@ -201,28 +201,40 @@ export async function POST(request: NextRequest) {
     const FROM = `"Military Auto" <${process.env.SMTP_USER}>`;
     const MANAGER = process.env.SMTP_USER!;
 
-    await Promise.all([
-      // 1. Notification to manager
-      transporter.sendMail({
+    // 1. Manager notification — must succeed, otherwise return error
+    try {
+      const info = await transporter.sendMail({
         from: FROM,
         to: MANAGER,
+        replyTo: email,
         subject: `🚗 Нова заявка від ${name}`,
+        text: `Нова заявка\n\nІм'я: ${name}\nТелефон: ${phone}\nEmail: ${email}\nПовідомлення: ${message ?? "—"}\nЧас: ${timestamp}`,
         html: managerEmailHtml({ name, phone, email, message: message ?? "", timestamp }),
-      }),
+      });
+      console.log(`✓ Manager email sent: ${info.messageId}`);
+    } catch (err) {
+      console.error("✗ Manager email FAILED:", err);
+      return NextResponse.json({ error: "Помилка сервера" }, { status: 500 });
+    }
 
-      // 2. Confirmation to client
-      transporter.sendMail({
+    // 2. Client confirmation — best-effort, don't block form success
+    try {
+      const info = await transporter.sendMail({
         from: FROM,
         to: email,
         subject: "Military Auto — Вашу заявку прийнято",
+        text: `Вітаємо, ${name}!\n\nМи отримали вашу заявку і зв'яжемося з вами протягом 30 хвилин у робочий час (Пн–Сб, 9:00–20:00).\n\nЗ повагою,\nКоманда Military Auto\nhttps://militaryauto.net`,
         html: clientEmailHtml(name),
-      }),
-    ]);
+      });
+      console.log(`✓ Client confirmation sent to ${email}: ${info.messageId}`);
+    } catch (err) {
+      console.error(`✗ Client confirmation FAILED for ${email}:`, err);
+      // Don't return error — manager already notified, lead is not lost
+    }
 
-    console.log(`✓ Emails sent for: ${name} <${email}> ${phone}`);
     return NextResponse.json({ success: true });
   } catch (err) {
-    console.error("Email error:", err);
+    console.error("Unexpected error:", err);
     return NextResponse.json({ error: "Помилка сервера" }, { status: 500 });
   }
 }
