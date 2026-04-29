@@ -98,7 +98,7 @@ export default function ContactSection() {
   const ref = useRef(null);
   const btnRef = useRef<HTMLButtonElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
   const [status, setStatus] = useState<"idle"|"loading"|"success"|"error">("idle");
   const [error, setError] = useState("");
 
@@ -124,7 +124,7 @@ export default function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.phone.trim()) { setError("Заповніть обов\'язкові поля"); return; }
+    if (!form.name.trim() || !form.phone.trim() || !form.email.trim()) { setError("Заповніть обов\'язкові поля"); return; }
     setError(""); setStatus("loading");
     try {
       const res = await fetch("/api/contact", {
@@ -134,7 +134,7 @@ export default function ContactSection() {
       });
       if (!res.ok) throw new Error();
       setStatus("success");
-      setForm({ name: "", phone: "", message: "" });
+      setForm({ name: "", phone: "", email: "", message: "" });
       fireConfetti();
     } catch {
       setStatus("error");
@@ -176,6 +176,8 @@ export default function ContactSection() {
                 value={form.name} onChange={(v) => setForm((f) => ({ ...f, name: v }))} required />
               <GlassInput label="Телефон" name="phone" type="tel" placeholder="+380 XX XXX XX XX"
                 value={form.phone} onChange={(v) => setForm((f) => ({ ...f, phone: v }))} required />
+              <GlassInput label="Email" name="email" type="email" placeholder="your@email.com"
+                value={form.email} onChange={(v) => setForm((f) => ({ ...f, email: v }))} required />
               <GlassTextarea label="Повідомлення" placeholder="Розкажіть про ваші побажання щодо авто..."
                 value={form.message} onChange={(v) => setForm((f) => ({ ...f, message: v }))} />
 
