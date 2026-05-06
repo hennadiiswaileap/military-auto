@@ -98,7 +98,7 @@ function CarCard({ car, index }: { car: (typeof cars)[0]; index: number }) {
         </div>
 
         <div
-          className="flex items-center justify-between pt-3"
+          className="flex items-center pt-3"
           style={{ borderTop: "1px solid #1a1a1a" }}
         >
           <div>
@@ -106,10 +106,6 @@ function CarCard({ car, index }: { car: (typeof cars)[0]; index: number }) {
             <div className="text-lg font-bold" style={{ color: "#A4D620" }}>
               {fmt(car.priceUS)}
             </div>
-          </div>
-          <div className="text-right">
-            <div className="text-xs text-[#555] mb-0.5">В Україні</div>
-            <div className="text-sm text-[#A0A0A0] line-through">{fmt(car.priceUA)}</div>
           </div>
         </div>
       </div>
