@@ -12,27 +12,15 @@ const IgIcon = () => (
     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
   </svg>
 );
-const FbIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-  </svg>
-);
 const TgIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
     <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-17.5 7.463c-1.418.6-1.394 1.854-.254 2.232l4.493 1.403 1.725 5.261c.221.664.66.888 1.146.888.485 0 .698-.22 1.017-.52l2.524-2.454 4.969 3.673c.928.511 1.587.246 1.818-.859l3.288-15.46c.332-1.337-.505-1.942-1.204-1.842z"/>
   </svg>
 );
-const TkIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.85 4.85 0 0 1-1-.07z"/>
-  </svg>
-);
 
 const socials = [
-  { icon: IgIcon, label: "Instagram", href: "#" },
-  { icon: FbIcon, label: "Facebook",  href: "#" },
-  { icon: TgIcon, label: "Telegram",  href: "#" },
-  { icon: TkIcon, label: "TikTok",    href: "#" },
+  { icon: IgIcon, label: "Instagram", href: "https://www.instagram.com/militaryauto.ua?igsh=MW9kaG1nZzBidXY3dA==" },
+  { icon: TgIcon, label: "Telegram",  href: "https://t.me/+380938558888" },
 ];
 
 function GlassInput({
@@ -231,8 +219,8 @@ export default function ContactSection() {
               <h3 className="text-xl font-semibold text-white mb-6 font-[family-name:var(--font-heading)]">Контакти</h3>
               <div className="flex flex-col gap-5">
                 {[
-                  { href: "tel:+380000000000", icon: Phone, label: "Телефон", value: "+380 XX XXX XX XX" },
-                  { href: "mailto:info@militaryauto.ua", icon: Mail, label: "Email", value: "info@militaryauto.ua" },
+                  { href: "tel:+380938558888", icon: Phone, label: "Телефон / Viber / WhatsApp", value: "+380 93 855 8888" },
+                  { href: "mailto:hello@militaryauto.net", icon: Mail, label: "Email", value: "hello@militaryauto.net" },
                 ].map(({ href, icon: Icon, label, value }) => (
                   <a key={label} href={href}
                     className="flex items-center gap-4 text-[#A0A0A0] hover:text-white transition-colors group">
@@ -255,7 +243,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <div className="text-xs text-[#555] mb-0.5 uppercase tracking-wider">Адреса</div>
-                    <div className="text-white font-medium">Київ, Україна</div>
+                    <div className="text-white font-medium">вул. Миколи Грінченка 4B, Київ</div>
                   </div>
                 </div>
               </div>

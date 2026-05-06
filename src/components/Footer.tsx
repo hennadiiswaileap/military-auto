@@ -9,19 +9,9 @@ const IgIcon = () => (
     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
   </svg>
 );
-const FbIcon = () => (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-  </svg>
-);
 const TgIcon = () => (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
     <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-17.5 7.463c-1.418.6-1.394 1.854-.254 2.232l4.493 1.403 1.725 5.261c.221.664.66.888 1.146.888.485 0 .698-.22 1.017-.52l2.524-2.454 4.969 3.673c.928.511 1.587.246 1.818-.859l3.288-15.46c.332-1.337-.505-1.942-1.204-1.842z"/>
-  </svg>
-);
-const TkIcon = () => (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.85 4.85 0 0 1-1-.07z"/>
   </svg>
 );
 
@@ -34,10 +24,8 @@ const navLinks = [
 ];
 
 const socials = [
-  { icon: IgIcon, href: "#", label: "Instagram" },
-  { icon: FbIcon, href: "#", label: "Facebook"  },
-  { icon: TgIcon, href: "#", label: "Telegram"  },
-  { icon: TkIcon, href: "#", label: "TikTok"    },
+  { icon: IgIcon, href: "https://www.instagram.com/militaryauto.ua?igsh=MW9kaG1nZzBidXY3dA==", label: "Instagram" },
+  { icon: TgIcon, href: "https://t.me/+380938558888", label: "Telegram" },
 ];
 
 function scrollTo(href: string) {
