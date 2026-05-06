@@ -72,7 +72,7 @@ export default function Footer() {
 
         <div className="mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2"
           style={{ borderTop: "1px solid #161616" }}>
-          <p className="text-[#555] text-xs">© 2025 Military Auto. Всі права захищені.</p>
+          <p className="text-[#555] text-xs">© 2026 Military Auto. Всі права захищені.</p>
           <p className="text-[#333] text-xs">Пригон авто зі США в Україну</p>
         </div>
       </div>
