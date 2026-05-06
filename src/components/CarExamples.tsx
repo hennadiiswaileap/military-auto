@@ -59,16 +59,6 @@ function CarCard({ car, index }: { car: (typeof cars)[0]; index: number }) {
         />
       )}
 
-      {/* Savings badge */}
-      <div className="absolute top-3 right-3 z-20">
-        <span
-          className="text-xs font-bold px-2.5 py-1 rounded-full"
-          style={{ background: "rgba(124,181,24,0.18)", color: "#A4D620", backdropFilter: "blur(8px)" }}
-        >
-          Економія {fmt(car.saving)}
-        </span>
-      </div>
-
       {/* Car photo */}
       <div className="relative w-full overflow-hidden" style={{ height: "185px" }}>
         <div
