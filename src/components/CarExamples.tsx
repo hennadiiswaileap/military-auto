@@ -5,12 +5,12 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 
 const cars = [
-  { make: "Toyota",     model: "Camry",  year: 2021, priceUS: 15200, priceUA: 19000, saving: 3800, photo: "/cars/camry.jpg"          },
-  { make: "BMW",        model: "X3",     year: 2022, priceUS: 26500, priceUA: 33000, saving: 6500, photo: "/cars/bmw-x3.jpg"         },
-  { make: "Hyundai",    model: "Tucson", year: 2023, priceUS: 19800, priceUA: 24500, saving: 4700, photo: "/cars/hyundai-tucson.avif" },
-  { make: "Ford",       model: "Mustang",year: 2021, priceUS: 22000, priceUA: 27500, saving: 5500, photo: "/cars/ford-mustang.webp"  },
-  { make: "Mercedes",   model: "GLC",    year: 2022, priceUS: 28900, priceUA: 36000, saving: 7100, photo: "/cars/mercedes-glc.avif"  },
-  { make: "Volkswagen", model: "ID.4",   year: 2023, priceUS: 18500, priceUA: 23000, saving: 4500, photo: "/cars/vw-id4.avif"        },
+  { make: "BMW",        model: "530i",       year: 2017, priceUS: 11000, priceUA: 16500, saving: 5500, photo: "/cars/bmw-530.jpg"           },
+  { make: "Volvo",      model: "XC60 T5",    year: 2018, priceUS: 14000, priceUA: 20500, saving: 6500, photo: "/cars/volvo-xc60.jpg"        },
+  { make: "Volkswagen", model: "Tiguan",     year: 2021, priceUS:  9000, priceUA: 13500, saving: 4500, photo: "/cars/vw-tiguan.jpg"         },
+  { make: "Toyota",     model: "Highlander", year: 2022, priceUS: 27000, priceUA: 35000, saving: 8000, photo: "/cars/toyota-highlander.jpg" },
+  { make: "BMW",        model: "X7",         year: 2023, priceUS: 52000, priceUA: 65000, saving:13000, photo: "/cars/bmw-x7.jpg"            },
+  { make: "Audi",       model: "Q5",         year: 2018, priceUS: 11000, priceUA: 16500, saving: 5500, photo: "/cars/audi-q5.jpg"           },
 ];
 
 function fmt(n: number) {
